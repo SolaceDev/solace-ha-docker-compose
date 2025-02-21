@@ -21,11 +21,6 @@ x-common:
   &default-common
   image: solace/solace-pubsub-standard:${TAG:-latest}
   shm_size: 1g
-  ulimits:
-    core: -1
-    nofile:
-      soft: 2448
-      hard: 1048576
   networks:
     - hanet
 
