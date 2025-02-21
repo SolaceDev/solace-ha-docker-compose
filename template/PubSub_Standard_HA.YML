@@ -45,6 +45,11 @@ services:
       redundancy_matelink_connectvia: backup
       redundancy_activestandbyrole: primary
       service_semp_tlsport: 1943
+    ulimits:
+      core: -1
+      nofile:
+        soft: 2448
+        hard: 1048576
     << : *default-common
 
   backup:
@@ -61,6 +66,11 @@ services:
       redundancy_matelink_connectvia: primary
       redundancy_activestandbyrole: backup
       service_semp_tlsport: 1943
+    ulimits:
+      core: -1
+      nofile:
+        soft: 2448
+        hard: 1048576
     << : *default-common
 
   monitoring:
@@ -75,6 +85,11 @@ services:
       routername: monitoring
       nodetype: monitoring
       service_semp_tlsport: 1943
+    ulimits:
+      core: -1
+      nofile:
+        soft: 2448
+        hard: 8192
     << : *default-common
 
   lb:
